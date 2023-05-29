@@ -12,3 +12,4 @@ Abrir la terminal
     code .
     php artisan serve
 
+xd
