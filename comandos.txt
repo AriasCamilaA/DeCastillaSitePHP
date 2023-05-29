@@ -1,0 +1,14 @@
+ir a panel de control > Cuentas de Usuarios > Administrador de Credenciales > Credenciales de  windows
+    Borrar todo lo de git y github
+
+
+Abrir la terminal
+    cd C:\xampp\htdocs
+    git clone "https://github.com/AriasCamilaA/DeCastillaSitePHP.git"
+    cd DeCastillaSitePHP
+    git config user.name "NombreDeUsuario"
+    git config user.username "CorreoElectronico"
+    composer update --no-scripts
+    code .
+    php artisan serve
+
