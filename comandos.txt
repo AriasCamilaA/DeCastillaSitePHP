@@ -7,7 +7,7 @@ Abrir la terminal
     git clone "https://github.com/AriasCamilaA/DeCastillaSitePHP.git"
     cd DeCastillaSitePHP
     git config user.name "NombreDeUsuario"
-    git config user.username "CorreoElectronico"
+    git config user.email "CorreoElectronico"
     composer update --no-scripts
     code .
     php artisan serve
