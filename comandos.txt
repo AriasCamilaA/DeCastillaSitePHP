@@ -11,5 +11,10 @@ Abrir la terminal
     composer update --no-scripts
     code .
     php artisan serve
-
-xd
+    composer iinstall
+    //crear .env//
+    //copiar y pegar de la carpeta .env example al .env//
+    //se agregan archivos de la base de tatos//
+    //generar clave//
+    php artisan key:generate
+    
