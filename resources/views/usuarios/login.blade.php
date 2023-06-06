@@ -17,7 +17,8 @@
 <body class="fondoTranslucido">
     <section class="container">
         <img class="logo" src="{{asset("assets/img/logo_letra_oscura.png")}}" alt="logo De Castilla">
-        <form action="../../menuPrincipal" class="form">
+        <form action="../../menuPrincipal" class="form" method="POST">
+            @csrf
             <h2 class="title">Iniciar Sesión</h2>
             <div class="form__inputs">
                 <div class="divLogin">
