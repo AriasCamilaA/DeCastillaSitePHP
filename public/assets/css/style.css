@@ -191,6 +191,7 @@ footer {
 /* Opciones del usuario */
 .user-dropdown {
     background: var(--oscuro);
+    width: -webkit-fill-available;
 }
 
 .user-dropdown a {
