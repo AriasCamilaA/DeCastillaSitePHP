@@ -120,8 +120,8 @@ footer {
 }
 
 /*-------------------------------------- Menu Superior ----------------------------------*/
-.menuSuperior {
-    z-index: 1;
+.menuSuperior, .landingMenu__Superior {
+    z-index: 2;
     position: fixed;
     top: 0;
     display: flex;
@@ -237,6 +237,7 @@ footer {
     color: var(--blanco);
     padding: 16px;
     width: -webkit-fill-available;
+    text-decoration: none;
 }
 
 .menuLateral a:hover {

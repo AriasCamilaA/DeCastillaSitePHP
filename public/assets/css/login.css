@@ -46,11 +46,13 @@
 }
 
 .divLogin {
-    display: block !important; 
+    display: grid;
     margin: auto;
+    width: -webkit-fill-available;
+    gap: 12px;
 }
 
-.form div {
+.form > div {
     display: flex;
     width: 80%;
     justify-content: center;
@@ -85,7 +87,7 @@
     background: transparent;
     display: inline-flex;
     height: 32px;
-    width: 80%;
+    width: -webkit-fill-available;
     justify-content: center;
     align-items: center;
     padding-left: 8px;
@@ -115,4 +117,8 @@
 
 .register .form__input {
     border-radius: 16px;
+}
+
+a:hover{
+    cursor: pointer;
 }

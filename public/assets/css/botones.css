@@ -16,6 +16,13 @@
 .btn:hover {
     background: var(--claro) ;
     color: var(--blanco);
+    cursor: pointer;
+}
+
+.btn_largo {
+    padding: 12px;
+    width: -webkit-fill-available;
+    border-radius: 16px
 }
 
 .btn-porAprobar{
