@@ -50,9 +50,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'noDocumento_Usuario' => ['required'],
+            'correo_Usuario' => ['required'],
+            'pasword_Usuario' => ['required'],
+            'celular_Usuario' => ['required'],
+            'nombre_Usuario1' => ['required'],
+            'nombre_Usuario2' => ['required'],
+            'apellido_Usuario1' => ['required'],
+            'apellido_Usuario2' => ['required']
         ]);
     }
 
@@ -65,9 +70,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'noDocumento_Usuario' => $data['noDocumento_Usuario'],
+            'correo_Usuario' => $data['correo_Usuario'],
+            'pasword_Usuario' => Hash::make($data['pasword_Usuario']),
+            'celular_Usuario' => $data['celular_Usuario'],
+            'nombre_Usuario' => $data['nombre_Usuario1'] . ' ' . $data['nombre_Usuario2'],
+            'apellido_Usuario' => $data['apellido_Usuario1'] . ' ' . $data['apellido_Usuario2'],
+            'id_Rol_FK' => 2,
         ]);
     }
 }
