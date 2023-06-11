@@ -85,14 +85,20 @@ Route::get('/ventas/visualizar', function () {
     return view('/ventas/visualizar');
 });
 
-Route::get('/menuPrincipal', function () {
-    return view('/menuPrincipal');
+Route::get('landing', function () {
+    return view('/landing');
 });
 
-Route::get('/index', function () {
-    return view('/index');
+Route::get('/nav', function () {
+    return view('/home');
 });
+
+// Route::get('', function () {
+//     return view('/menuPrincipal');
+// });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('menuPrincipal');
+
