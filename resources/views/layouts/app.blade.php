@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +11,8 @@
     <title>{{ config('app.name', 'De Castilla Site') }}</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
@@ -20,6 +22,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
+
 <body>
     <div id="app">
         <!-- ---------------------------------------------menu superior------------------------------------ -->
@@ -86,25 +89,31 @@
                 <img src="{{asset('assets/img/logoClaro.png')}}" alt="">
             </div>
             <div class="dropdown">
-                <a class="dropdown-toggle menu-user" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
+                <button class="dropdown-toggle menu-user" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img class="icon" src="{{asset('assets/icons/Logo Usuario.png')}}" alt="">
-                    <p class="user-name">Mi nombre</p>
-                </a>
-                <div class="dropdown-menu user-dropdown" aria-labelledby="dropdownMenuButton">
-
-                    <a class="dropdown-item" href="#">
-                        <img src="{{asset('assets/icons/LogoUserWhite.png')}}" alt="">
-                        Perfil
-                    </a>
-                    <a class="dropdown-item" href="../../">
-                        <img src="{{asset('assets/icons/LogoOffWhite.png')}}" alt="">
-                        Cerrar Sesión
-                    </a>
-                </div>
+                    {{ Auth::user()->nombre_Usuario }}
+                </button>
+                <ul class="dropdown-menu user-dropdown">
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <img src="{{asset('assets/icons/LogoUserWhite.png')}}" alt="">
+                            Perfil
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            <img src="{{asset('assets/icons/LogoOffWhite.png')}}" alt="">
+                            Cerrar Sesión
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+                </ul>
             </div>
         </nav>
-        @endguest   
+        @endguest
         <!-- ---------------------------------------------Contenido------------------------------------ -->
         <main class="py-4">
             @yield('content')
@@ -112,6 +121,7 @@
     </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
 </body>
+
 </html>

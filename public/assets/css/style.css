@@ -162,6 +162,8 @@ footer {
     display: flex;
     align-items: center;
     color: var(--blanco);
+    background-color: transparent;
+    border: none;
 }
 
 .menu-user p {
