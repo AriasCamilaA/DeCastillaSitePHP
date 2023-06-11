@@ -29,7 +29,7 @@
         {{-- Si NO inicio Sesión --}}
         @guest
         <nav class="landingMenu__Superior">
-            <div class="menu-logo">
+            <div class="menu-logo nav-landing">
                 <a href="/landing">
                     <img src="{{asset('assets/img/logoClaro.png')}}" alt="">
                 </a>

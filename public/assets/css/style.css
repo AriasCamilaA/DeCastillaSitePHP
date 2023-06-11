@@ -193,6 +193,10 @@ footer {
     cursor: pointer;
 }
 
+.nav-landing{
+    position: initial;
+}
+
 /* Opciones del usuario */
 .user-dropdown {
     background: var(--oscuro);
