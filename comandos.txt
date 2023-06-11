@@ -2,19 +2,33 @@ ir a panel de control > Cuentas de Usuarios > Administrador de Credenciales > Cr
     Borrar todo lo de git y github
 
 
-Abrir la terminal
+----Abrir la terminal
     cd C:\xampp\htdocs
     git clone "https://github.com/AriasCamilaA/DeCastillaSitePHP.git"
     cd DeCastillaSitePHP
     git config user.name "NombreDeUsuario"
     git config user.email "CorreoElectronico"
-    composer update --no-scripts
     code .
-    php artisan serve
-    composer iinstall
-    //crear .env//
-    //copiar y pegar de la carpeta .env example al .env//
-    //se agregan archivos de la base de tatos//
-    //generar clave//
+
+----Descargar las dependencias para que funciones
+    composer update --no-scripts
+    composer install
+
+----Archivos para que funcione la conexión con la bd
+    copy .env.example .env
+    Llenar credenciales de la bd en .env
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=laravel
+        DB_USERNAME=root
+        DB_PASSWORD=
+
+
+----generar clave
     php artisan key:generate
+
+----Encender el servidor
+    php artisan serve
+
     
