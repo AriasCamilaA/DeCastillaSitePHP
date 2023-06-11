@@ -7,74 +7,111 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'De Castilla Site') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
 
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/landing.css')}}">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+        <!-- ---------------------------------------------menu superior------------------------------------ -->
+        {{-- Si NO inicio Sesión --}}
+        @guest
+        <nav class="landingMenu__Superior">
+            <div class="menu-logo">
+                <a href="/landing">
+                    <img src="{{asset('assets/img/logoClaro.png')}}" alt="">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+                <div class="landingMenu__links">
+                    <ul>
+                        <li><a href="#banner">Inicio</a></li>
+                        <li><a href="#quienes_somos">Quienes somos</a></li>
+                        <li><a href="#especialidades">Menú</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#contactanos">Contactanos</a></li>
                     </ul>
                 </div>
             </div>
+            <div class="landingMenu__btns">
+                <a href="/login" class="btn">Iniciar Sesión</a>
+                <a href="/register" class="btn" name="btn_register">Registrarse</a>
+            </div>
         </nav>
+        {{-- Si SI se ha iniciado sesión --}}
+        @else
+        <nav class="menuSuperior">
+            <div class="logosMenu">
+                <div>
+                    <label for="menuHam">
+                        <img class="icon" src="{{asset('assets/icons/Menu Hamburguesa.png')}}" alt="">
+                    </label>
+                    <input type="checkbox" id="menuHam">
+                    <div class="menuLateral">
+                        <div class="menuLateral__Opcion">
+                            <img src="{{asset('assets/icons/menuLateral/LogoVentas.png')}}" alt="icono">
+                            <a href="../ventas/visualizar">Ventas</a>
+                        </div>
+                        <div class="menuLateral__Opcion">
+                            <img src="{{asset('assets/icons/menuLateral/LogoInventario.png')}}" alt="icono">
+                            <a href="../inventario/visualizar">Inventario</a>
+                        </div>
+                        <div class="menuLateral__Opcion">
+                            <img src="{{asset('assets/icons/menuLateral/LogoProveedores.png')}}" alt="icono">
+                            <a href="../ordenes/visualizar">Proveedores</a>
+                        </div>
+                        <div class="menuLateral__Opcion">
+                            <img src="{{asset('assets/icons/menuLateral/LogoPedidos.png')}}" alt="icono">
+                            <a href="../pedidos/visualizar">Pedidos</a>
+                        </div>
+                        <div class="menuLateral__Opcion">
+                            <img src="{{asset('assets/icons/menuLateral/LogoUsuarios.png')}}" alt="icono">
+                            <a href="../usuarios/login">Usuarios</a>
+                        </div>
+                        <div class="menuLateral__Opcion">
+                            <img src="{{asset('assets/icons/menuLateral/LogoEstadisticas.png')}}" alt="icono">
+                            <a href="#">Estadísticas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-logo">
+                <img src="{{asset('assets/img/logoClaro.png')}}" alt="">
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-toggle menu-user" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img class="icon" src="{{asset('assets/icons/Logo Usuario.png')}}" alt="">
+                    <p class="user-name">Mi nombre</p>
+                </a>
+                <div class="dropdown-menu user-dropdown" aria-labelledby="dropdownMenuButton">
 
+                    <a class="dropdown-item" href="#">
+                        <img src="{{asset('assets/icons/LogoUserWhite.png')}}" alt="">
+                        Perfil
+                    </a>
+                    <a class="dropdown-item" href="../../">
+                        <img src="{{asset('assets/icons/LogoOffWhite.png')}}" alt="">
+                        Cerrar Sesión
+                    </a>
+                </div>
+            </div>
+        </nav>
+        @endguest   
+        <!-- ---------------------------------------------Contenido------------------------------------ -->
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
