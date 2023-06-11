@@ -166,6 +166,11 @@ footer {
     border: none;
 }
 
+.menu-logo{
+    position: absolute;
+    right: calc(50% - 51px);
+}
+
 .menu-user p {
     margin: auto;
 }
