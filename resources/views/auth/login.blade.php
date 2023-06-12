@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
 
-    <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/forms.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/login.css')}}">
@@ -17,14 +16,14 @@
 <body class="fondoTranslucido">
     <section class="container">
         <img class="logo" src="{{asset('assets/img/logo_letra_oscura.png')}}" alt="logo De Castilla">
-        <form action="../../menuPrincipal" class="form" method="POST">
+        <form class="form" method="POST" action="{{ route('login') }}">
             @csrf
             <h2 class="title">Iniciar Sesión</h2>
             <div class="form__inputs">
                 <div class="divLogin">
                     <div class="inputConLogo">
                         <i class="form__icon"><img src="{{asset('assets/icons/User.png')}}" alt="Logo Usuario"></i>
-                    <input class="form__input" type="email" name="email"
+                    <input class="form__input" type="email" name="correo_Usuario"
                         placeholder="CorreoElectrónico@micorreo.com" id="email" required autofocus autocomplete="none"
                         data-tipo="email">
                         
@@ -34,9 +33,9 @@
                 <div class="divLogin">
                     <div class="inputConLogo">
                         <i class="form__icon"><img src="{{asset('assets/icons/Key.png')}}" alt="Logo Llave">                </i>
-                        <input class="form__input " type="password" name="password"
+                        <input class="form__input " type="password" name="pasword_Usuario"
                             placeholder="Contraseña" id="password" required
-                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" title="Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales."
+                            title="Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales."
                             data-tipo="passwordLogin">
                     </div>
                         <span class="input-message-error text-danger"></span>
@@ -59,7 +58,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
-    <script src="{{asset("assets/js/validaciones.js"></script>
+    {{-- <script src="{{asset("assets/js/validaciones.js"></script> --}}
 </body>
 
 </html>
