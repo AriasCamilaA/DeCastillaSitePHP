@@ -8,15 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Usuario extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    // Resto de la definición de tu modelo Usuario
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $table = 'Usuario';
     protected $primaryKey = 'noDocumento_Usuario';
     protected $fillable = [
@@ -27,26 +23,23 @@ class User extends Authenticatable
         'nombre_Usuario',
         'apellido_Usuario',
         'id_Rol_FK'
-
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    // Implementación de los métodos de la interfaz Authenticatable
+    public function getAuthIdentifierName()
+    {
+        return 'noDocumento_Usuario'; // Cambia 'id' por el nombre de la columna de identificación en tu tabla
+    }
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+    public function getAuthIdentifier()
+    {
+        return $this->{$this->getAuthIdentifierName()};
+    }
+
+    public function getAuthPassword()
+    {
+        return $this->pasword_Usuario;
+    }
+
+    // Implementación de otros métodos necesarios de la interfaz Authenticatable
 }
