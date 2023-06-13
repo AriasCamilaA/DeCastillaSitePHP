@@ -84,6 +84,13 @@
                         </div>
                     </div>
                 </div>
+
+                @if(!request()->is('/'))
+                    <a href="/">
+                        <img class="icon" src="{{asset("assets/icons/LogoCasa.png")}}" alt="">
+                    </a>
+                @endif
+
             </div>
             <div class="menu-logo">
                 <img src="{{asset('assets/img/logoClaro.png')}}" alt="">
