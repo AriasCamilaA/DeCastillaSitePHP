@@ -23,7 +23,7 @@
                 <div class="divLogin">
                     <div class="inputConLogo">
                         <i class="form__icon"><img src="{{asset('assets/icons/User.png')}}" alt="Logo Usuario"></i>
-                    <input class="form__input" type="email" name="correo_Usuario"
+                    <input class="form__input" type="email" name="email"
                         placeholder="CorreoElectrónico@micorreo.com" id="email" required autofocus autocomplete="none"
                         data-tipo="email">
                         
@@ -33,7 +33,7 @@
                 <div class="divLogin">
                     <div class="inputConLogo">
                         <i class="form__icon"><img src="{{asset('assets/icons/Key.png')}}" alt="Logo Llave">                </i>
-                        <input class="form__input " type="password" name="pasword_Usuario"
+                        <input class="form__input " type="password" name="password"
                             placeholder="Contraseña" id="password" required
                             title="Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales."
                             data-tipo="passwordLogin">
