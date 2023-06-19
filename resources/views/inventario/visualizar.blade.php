@@ -26,36 +26,30 @@
                 <img src="{{asset("assets/icons/excel.png")}}" alt="">
             </div>
             <div class="tabla">
-                <table class="table table-hover">
+                <table class="table table-hover table-striped">
                     <thead>
                       <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">INSUMO</th>
-                        <th scope="col">ENTRADAS</th>
-                        <th scope="col">SALIDAS</th>
-                        <th scope="col">STOCK</th>
+                        <th scope="col">Insumo</th>
+                        <th scope="col">Entradas</th>
+                        <th scope="col">Salidas</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Opciones</th>
                       </tr>
                     </thead>
                     <tbody>
                     <tr>
                         @foreach($vw_inventario_insumo as $insumos)
-                        {{-- <th scope="row">4</th>
-                        <td>Empleado</td>
-                        <td>17/03/2023</td>
-                        <td>18:01</td>
-                        <td>
-                            <span class="tabla__total">12.000</span>
-                        </td>
-                        <td class="tabla__opcion">
-                             <a href="./verProducto">
-                                <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
-                            </a>
-                        </td> --}}
-                        <td>{{$insumos->ID}}</td>
+                        <th>{{$insumos->ID}}</th>
                         <td>{{$insumos->INSUMO}}</td>
                         <td>{{$insumos->ENTRADAS}}</td>
                         <td>{{$insumos->SALIDAS}}</td>
                         <td>{{$insumos->STOCK}}</td>
+                        <td class="tabla__opcion">
+                            <a href="./verProducto">
+                               <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
+                           </a>
+                       </td>
                       </tr>
                       @endforeach
                     </tbody>
