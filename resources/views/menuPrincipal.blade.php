@@ -13,25 +13,25 @@
             </div>
             <div class="btn_opciones">
                 <a href="../inventario/visualizar">
-                    <img src="{{asset('assets/icons/Inventariopng')}}" alt="">
+                    <img src="{{asset('assets/icons/Inventario.png')}}" alt="">
                 </a>
                 <h2>Inventario</h2>
             </div>
             <div class="btn_opciones">
                 <a href="#">
-                    <img src="{{asset('assets/icons/Proveedore.png')}}" alt="">
+                    <img src="{{asset('assets/icons/Proveedores.png')}}" alt="">
                 </a>
                 <h2>Proveedores</h2>
             </div>
             <div class="btn_opciones">
                 <a href="../pedidos/visualizar">
-                    <img src="{{asset('assets/icons/Pedidos.pn')}}" alt="">
+                    <img src="{{asset('assets/icons/Pedidos.png')}}" alt="">
                 </a>
                 <h2>Pedidos</h2>
             </div>
             <div class="btn_opciones">
                 <a href="#">
-                    <img src="{{asset('assets/icons/Configuracon.png')}}" alt="">
+                    <img src="{{asset('assets/icons/Configuracion.png')}}" alt="">
                 </a>
                 <h2>Configuración</h2>
             </div>
