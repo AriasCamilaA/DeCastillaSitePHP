@@ -30,6 +30,7 @@ body {
 h1,h2,h3,h4,h5 {
     font-family: 'Sofia', cursive;
     color: var(--oscuro);
+    margin-bottom: revert;
     /* margin: 20px 4px; */
 }
 

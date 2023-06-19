@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Venta;
+use App\Models\vw_datosventa;
 use Illuminate\Http\Request;
 
 class VentaController extends Controller
@@ -12,7 +13,7 @@ class VentaController extends Controller
      */
     public function index()
     {
-        $ventas=Venta::all();
+        $ventas=vw_datosventa::all();
         return view('ventas/visualizar',compact('ventas'));
         //
     }
