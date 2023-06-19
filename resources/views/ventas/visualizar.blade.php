@@ -105,50 +105,9 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Empleado</td>
-                        <td>21/03/2023</td>
-                        <td>14:15</td>
-                        <td>
-                            <span class="tabla__total">25.000</span>
-                        </td>
-                        <td class="tabla__opcion">
-                             <a href="./verVenta">
-                                <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
-                            </a>
-                        </td>
-                    </tr>
+                    @foreach($ventas as $venta)
                     <tr>
-                        <th scope="row">2</th>
-                        <td>Administrador</td>
-                        <td>15/03/2023</td>
-                        <td>13:33</td>
-                        <td>
-                            <span class="tabla__total">5.000</span>
-                        </td>
-                        <td class="tabla__opcion">
-                             <a href="./verVenta">
-                                <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Administrador</td>
-                        <td>18/03/2023</td>
-                        <td>12:54</td>
-                        <td>
-                            <span class="tabla__total">19.000</span>
-                        </td>
-                        <td class="tabla__opcion">
-                             <a href="./verVenta">
-                                <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
+                        <!-- <th scope="row">4</th>
                         <td>Empleado</td>
                         <td>17/03/2023</td>
                         <td>18:01</td>
@@ -157,10 +116,17 @@
                         </td>
                         <td class="tabla__opcion">
                              <a href="./verVenta">
-                                <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
+                                <img src="{{asset('assets/icons/visualizar.png')}}" alt="Visualizar">
                             </a>
-                        </td>
+                        </td> -->
+                        <td>{{$venta->id_Venta}}</td>
+                        <td>{{$venta->fecha_Venta}}</td>
+                        <td>{{$venta->hora_venta}}</td>
+                        <td>{{$venta->total_Venta}}</td>
+                        <td>{{$venta->id_Administrador_FK}}</td>
+                        <td>{{$venta->id_Empleado_FK}}</td>
                       </tr>
+                    @endforeach
                     </tbody>
                   </table>
             </div>

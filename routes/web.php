@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\VentaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,8 @@ Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('men
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('pedidos/visualizar', PedidoController::class);
+    Route::resource('ventas/visualizar', VentaController::class);
+
 });
 
 
