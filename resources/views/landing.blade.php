@@ -58,8 +58,8 @@
         </button>
     </div>
 </section>
+<img src="{{asset('assets/img/separador.png')}}" alt="" class="separador">
 <section id="quienes_somos" class="quienes_somos container ">
-    <img src="{{asset('assets/img/separador.png')}}" alt="" class="separador">
     <h1>Quíenes somos</h1>
     <div class="row contenido">
         <div class="col">

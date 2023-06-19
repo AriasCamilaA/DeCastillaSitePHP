@@ -111,9 +111,8 @@
 
 .separador{
     height: 88px;
-    /* margin: auto; */
+    margin: auto;
     display: flex;
-    width: 100%;
 }
 
 .quienes_somos{
