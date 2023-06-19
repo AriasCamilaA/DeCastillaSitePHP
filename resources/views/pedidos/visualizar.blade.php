@@ -38,47 +38,27 @@
                 <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Cliente</th>
-                        <th scope="col">Pedido</th>
-                        <th scope="col">Fecha</th>
+                        <th scope="col">id_Pedido</th>
+                        <th scope="col">descripcion_Pedido</th>
+                        <th scope="col">fecha_Pedido</th>
+                        <th scope="col">id_EstadoPedido_FK</th>
+                        <th scope="col">id_Cliente_FK</th>
                         <th class="tabla__estado" scope="col">
-                            Estado
+                            id_Venta_FK
                         </th>
                         <th class="tabla__opcion" scope="col">Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Camila Arias</td>
-                        <td>Cheese cake de limón</td>
-                        <td>19/03/2023</td>
-                        <td class="tabla__estado">
-                            <span class="lbl_Estado btn-paraRecoger">Para recoger</span>
-                        </td>
-                        <td class="tabla__opcion">
-                            <a href="./verPedido">
-                                <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
-                            </a>
-                        </td>
-                    </tr>
+                        @foreach($pedidos as $pedido)
                     <tr>
-                        <th scope="row">2</th>
-                        <td>Vincent Camargo</td>
-                        <td>Oblea especial</td>
-                        <td>20/03/2023</td>
-                        <td class="tabla__estado">
-                            <span class="lbl_Estado btn-porAprobar">Por Arpobar</span>
-                        </td>
-                        <td class="tabla__opcion">
-                            <a href="./verPedido">
-                                <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
+                        <td>{{$pedido->id_Pedido}}</td>
+                        <td>{{$pedido->descripcion_Pedido}}</td>
+                        <td>{{$pedido->fecha_Pedido}}</td>
+                        <td>{{$pedido->id_EstadoPedido_FK}}</td>
+                        <td>{{$pedido->id_Cliente_FK}}</td>
+                        <td>{{$pedido->id_Venta_FK}}</td>
+                        {{-- <th scope="row">3</th>
                         <td>Felipe Rodríguez</td>
                         <td>Wafle con nutella</td>
                         <td>17/03/2023</td>
@@ -89,22 +69,9 @@
                             <a href="./verPedido">
                                 <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
                             </a>
-                        </td>
+                        </td> --}}
                     </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Sebastián Junco</td>
-                        <td>Arroz con leche</td>
-                        <td>19/03/2023</td>
-                        <td class="tabla__estado">
-                            <span class="lbl_Estado btn-porAprobar">Por Arpobar</span>
-                        </td>
-                        <td class="tabla__opcion">
-                            <a href="./verPedido">
-                                <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
-                            </a>
-                        </td>
-                      </tr>
+                    @endforeach
                     </tbody>
                   </table>
             </div>
