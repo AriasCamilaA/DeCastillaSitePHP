@@ -29,59 +29,17 @@
                 <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Vendedor</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Hora</th>
-                        <th scope="col">Total</th>
-                        <th class="tabla__opcion" scope="col">Acciones</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">INSUMO</th>
+                        <th scope="col">ENTRADAS</th>
+                        <th scope="col">SALIDAS</th>
+                        <th scope="col">STOCK</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Empleado</td>
-                        <td>21/03/2023</td>
-                        <td>14:15</td>
-                        <td>
-                            <span class="tabla__total">25.000</span>
-                        </td>
-                        <td class="tabla__opcion">
-                             <a href="./verProducto">
-                                <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
-                            </a>
-                        </td>
-                    </tr>
                     <tr>
-                        <th scope="row">2</th>
-                        <td>Administrador</td>
-                        <td>15/03/2023</td>
-                        <td>13:33</td>
-                        <td>
-                            <span class="tabla__total">5.000</span>
-                        </td>
-                        <td class="tabla__opcion">
-                             <a href="./verProducto">
-                                <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Administrador</td>
-                        <td>18/03/2023</td>
-                        <td>12:54</td>
-                        <td>
-                            <span class="tabla__total">19.000</span>
-                        </td>
-                        <td class="tabla__opcion">
-                             <a href="./verProducto">
-                                <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
+                        @foreach($vw_inventario_insumo as $insumos)
+                        {{-- <th scope="row">4</th>
                         <td>Empleado</td>
                         <td>17/03/2023</td>
                         <td>18:01</td>
@@ -92,8 +50,14 @@
                              <a href="./verProducto">
                                 <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
                             </a>
-                        </td>
+                        </td> --}}
+                        <td>{{$insumos->ID}}</td>
+                        <td>{{$insumos->INSUMO}}</td>
+                        <td>{{$insumos->ENTRADAS}}</td>
+                        <td>{{$insumos->SALIDAS}}</td>
+                        <td>{{$insumos->STOCK}}</td>
                       </tr>
+                      @endforeach
                     </tbody>
                   </table>
             </div>
