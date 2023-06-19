@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pedido;
+use App\Models\vw_pedidos_finalizados;
+use App\Models\vw_pedidos_no_finalizados;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,8 +16,9 @@ class PedidoController extends Controller
     public function index()
     {
         //
-        $pedidos = Pedido::all();
-        return view('pedidos/visualizar', compact('pedidos'));
+        $pedidos_finalizados = vw_pedidos_finalizados::all();
+        $pedidos_no_finalizados = vw_pedidos_no_finalizados::all();
+        return view('pedidos/visualizar', compact('pedidos_finalizados','pedidos_no_finalizados'));
     }
 
     /**

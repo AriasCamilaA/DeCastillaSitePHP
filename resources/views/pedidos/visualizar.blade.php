@@ -1,26 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
+
+@php
+    $estados = [
+        'Por Aprobar' => 'porAprobar',
+        'Aprobado' => 'aprobado',
+        'Preparándose' => 'preparandose',
+        'Para Recoger' => 'paraRecoger',
+        'Cancelado' => 'cancelados',
+        'Aceptar Cambios' => 'aceptarCambios',
+        'Finalizados' => 'finalizados'
+    ];
+@endphp
+
     <link rel="stylesheet" href="{{asset("assets/css/tablas.css")}}">
     <link rel="stylesheet" href="{{asset("assets/css/botones.css")}}">
         <!-- ---------------------------------------------Contenido----------------------------------------- -->
         <div class="contenido">
             <h1>Pedidos</h1>
             <div class="opciones">
-                <input type="radio" name="rd_Estado" id="rd_btn-porAprobar" class="btn-porAprobar">
-                <label for="rd_btn-porAprobar" class="lbl_Estado btn-porAprobar">Por Arpobar</label>
-                <input type="radio" name="rd_Estado" id="rd_btn-aprobado" class="btn-aprobado">
-                <label for="rd_btn-aprobado" class="lbl_Estado btn-aprobado">Aprobado</label>
-                <input type="radio" name="rd_Estado" id="rd_btn-preparandose" class="btn-preparandose">
-                <label for="rd_btn-preparandose" class="lbl_Estado btn-preparandose">Preparandose</label>
-                <input type="radio" name="rd_Estado" id="rd_btn-paraRecoger" class="btn-paraRecoger">
-                <label for="rd_btn-paraRecoger" class="lbl_Estado btn-paraRecoger">Para Recoger</label>
-                <input type="radio" name="rd_Estado" id="rd_btn-cancelados" class="btn-cancelados">
-                <label for="rd_btn-cancelados" class="lbl_Estado btn-cancelados">Cancelados</label>
-                <input type="radio" name="rd_Estado" id="rd_btn-aceptarCambios" class="btn-aceptarCambios">
-                <label for="rd_btn-aceptarCambios" class="lbl_Estado btn-aceptarCambios">Aceptar Cambios</label>
-                <input type="radio" name="rd_Estado" id="rd_Finalizado" class="btn-finalizados">
-                <label for="rd_Finalizado" class="lbl_Estado btn-finalizados">Finalizados</label>
+                @foreach($estados as $key => $value)
+                    <input type="radio" name="rd_Estado" id="rd_btn-{{ $value }}" class="btn-{{ $value }}">
+                    <label for="rd_btn-{{ $value }}" class="lbl_Estado btn-{{ $value }}">{{ $key }}</label>
+                @endforeach
             </div>
             <div class="filtros">
                 <div>
@@ -34,47 +37,106 @@
                 </div>
                 <img src="{{asset("assets/icons/excel.png")}}" alt="">
             </div>
-            <div class="tabla">
-                <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th scope="col">id_Pedido</th>
-                        <th scope="col">descripcion_Pedido</th>
-                        <th scope="col">fecha_Pedido</th>
-                        <th scope="col">id_EstadoPedido_FK</th>
-                        <th scope="col">id_Cliente_FK</th>
-                        <th class="tabla__estado" scope="col">
-                            id_Venta_FK
-                        </th>
-                        <th class="tabla__opcion" scope="col">Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($pedidos as $pedido)
-                    <tr>
-                        <td>{{$pedido->id_Pedido}}</td>
-                        <td>{{$pedido->descripcion_Pedido}}</td>
-                        <td>{{$pedido->fecha_Pedido}}</td>
-                        <td>{{$pedido->id_EstadoPedido_FK}}</td>
-                        <td>{{$pedido->id_Cliente_FK}}</td>
-                        <td>{{$pedido->id_Venta_FK}}</td>
-                        {{-- <th scope="row">3</th>
-                        <td>Felipe Rodríguez</td>
-                        <td>Wafle con nutella</td>
-                        <td>17/03/2023</td>
-                        <td class="tabla__estado">
-                            <span class="lbl_Estado btn-aceptarCambios">Aceptar cambios</span>
-                        </td>
-                        <td class="tabla__opcion">
-                            <a href="./verPedido">
-                                <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
-                            </a>
-                        </td> --}}
-                    </tr>
-                    @endforeach
-                    </tbody>
-                  </table>
-            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                  <p class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                      Pedidos no finalizados
+                    </button>
+                  </p>
+                  <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                        <div class="tabla">
+                            <table class="table table-hover">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Dodumento</th>
+                                    <th scope="col">Celular</th>
+                                    <th scope="col">Cliente</th>
+                                    <th class="tabla__estado" scope="col">Estado</th>
+                                    <th class="tabla__opcion" scope="col">Acciones</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($pedidos_no_finalizados as $pedido)
+                                <tr>
+                                    <th>{{$pedido->ID_PEDIDO}}</th>
+                                    <td>{{$pedido->DESCRIPCION}}</td>
+                                    <td>{{$pedido->FECHA}}</td>
+                                    <td>{{$pedido->DOC_USUARIO}}</td>
+                                    <td>{{$pedido->CELULAR}}</td>
+                                    <td>{{$pedido->CLIENTE}}</td>
+                                    <td class="tabla__estado">
+                                        @if(isset($estados[$pedido->ESTADO]))
+                                            <span class="lbl_Estado btn-{{ $estados[$pedido->ESTADO] }}">{{ $pedido->ESTADO }}</span>
+                                        @endif
+                                    </td>
+                                    <td class="tabla__opcion">
+                                        <a href="./verPedido">
+                                            <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <p class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                      Pedidos finalizados y cancelados
+                    </button>
+                  </p>
+                  <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="tabla">
+                            <table class="table table-hover">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Dodumento</th>
+                                    <th scope="col">Celular</th>
+                                    <th scope="col">Cliente</th>
+                                    <th class="tabla__estado" scope="col">Estado</th>
+                                    <th class="tabla__opcion" scope="col">Acciones</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($pedidos_finalizados as $pedido)
+                                <tr>
+                                    <th>{{$pedido->ID_PEDIDO}}</th>
+                                    <td>{{$pedido->DESCRIPCION}}</td>
+                                    <td>{{$pedido->FECHA}}</td>
+                                    <td>{{$pedido->DOC_USUARIO}}</td>
+                                    <td>{{$pedido->CELULAR}}</td>
+                                    <td>{{$pedido->CLIENTE}}</td>
+                                    <td class="tabla__estado">
+                                        @if(isset($estados[$pedido->ESTADO]))
+                                            <span class="lbl_Estado btn-{{ $estados[$pedido->ESTADO] }}">{{ $pedido->ESTADO }}</span>
+                                        @endif
+                                    </td>
+                                    <td class="tabla__opcion">
+                                        <a href="./verPedido">
+                                            <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
     </div>
 

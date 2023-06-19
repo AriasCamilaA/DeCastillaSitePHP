@@ -122,7 +122,22 @@
     height: 24px;
     cursor: pointer;
 }
+/* Tabla con accordion de pedidos */
+.accordion{
+    margin: 16px;
+    padding: 4px;
+    min-width: auto;
+    width: 90%;
+    max-height: 332px;
+    border: 1px solid var(--oscuro);
+    border-radius: 16px;
+    overflow: auto;
+}
 
+.accordion .tabla{
+    width: 100%;
+    margin: 0;
+}
 
 /* -------------Modal agregar-------------------- */
 .modal-header{
