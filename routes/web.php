@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\VentaController;
+<<<<<<< HEAD
 use App\Http\Controllers\InventarioInsumoController;
 
+=======
+use App\Http\Controllers\InventarioProductoController;
+>>>>>>> 441d7c18b1ece5e1e9cb49173769dddbf5d5eb53
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +34,12 @@ Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('men
 Route::middleware(['auth'])->group(function () {
     Route::resource('pedidos/visualizar', PedidoController::class);
     Route::resource('ventas/visualizar', VentaController::class);
+<<<<<<< HEAD
     Route::resource('inventario/visualizar', InventarioInsumoController::class);
+=======
+    Route::resource('inventario/visualizar', InventarioProductoController::class);
+
+>>>>>>> 441d7c18b1ece5e1e9cb49173769dddbf5d5eb53
 
 });
 
