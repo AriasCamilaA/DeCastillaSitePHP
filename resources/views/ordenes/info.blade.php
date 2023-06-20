@@ -56,7 +56,7 @@
 
 <div class="modal fade bd-example-modal-xl" id="delete{{$proveedor->id_proveedor}}" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title" id="exampleModalLabel">Eliminar Proveedor</h2>
@@ -73,12 +73,16 @@
                         Esta seguro que desea eliminar a el proveedor 
                         <strong>{{$proveedor->empresa_proveedor}}</strong>
                     </p>
-                    <button type="button" class="close btn btn-danger" data-dismiss="modal" aria-label="Close">
-                        No
-                    </button>
-                    <button class="btn btn-success" type="submit">Eliminar proveedor</button>
+                    <div class="modal-footer">
+                        <button type="button" class="close btn btn-secondary" data-dismiss="modal" aria-label="Close">
+                            Cancelar
+                        </button>
+                        <button class="btn btn-danger" type="submit">Eliminar proveedor</button>
+                    </div>
+
                 </form>
             </div>
         </div>
     </div>
 </div>
+
