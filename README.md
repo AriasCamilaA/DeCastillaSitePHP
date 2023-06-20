@@ -1,66 +1,33 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# De Castilla Site 🍧
+<p align="center"><img width="145" src="https://github.com/senauti/project-gaes6-decastillasite/assets/115506864/afb9d9fa-00a0-43c8-9c2b-b0afcc77d6d5"></p>
+  
+## Objetivo general 🎯
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Objetivos específicos 🎯
+- Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+- Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+- Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+- Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
 
-## About Laravel
+## Planteamiento del problema 😵‍💫
+La necesidad de sistematizar los procesos que se vienen realizando manualmente en la Repostería De Castilla se da debido a la urgencia que se tiene de optimizar dichos procesos y de garantizar la persistencia y seguridad de la información, puesto que la gestión de los datos de la repostería por medio de papel acarrea varios inconvenientes, siendo el más relevante de ellos, la dificultad en la organización de cuentas e inventario de los productos, dado que en múltiples situaciones no se tiene claridad de las existencias en el inventario.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Justificación 📃
+El Sistema de Información se creará con el fin de:
+- Manejar el inventario de forma manual a forma digital en el sistema.
+- Reducción de tiempos y pérdida de información.
+- Facilitar la toma de decisiones por medio de las alertas.
+- Gestión eficiente de los recibos de pago.
+- Comunicación directa de clientes con la empresa.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Alcance 🚀
+En el proyecto se implementarán cuatro módulos, de los cuales dos de ellos corresponden a información para el público y los restantes son privados. No se tienen estimados domicilios, ya que por el momento no se cumple con esta característica.Por otro lado el sistema no contará con pagos electrónicos ni de tarjetas.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+El tiempo de finalización del proyecto es para Abril del 2024.
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Integrantes ⛷️
+- Camila Alexandra Arias Ruiz
+- Vincent Camargo Giraldo
+- Juan Felipe Rodríguez Castilla
+- Juan Sebastian Junco Ramos
