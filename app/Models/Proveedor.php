@@ -21,4 +21,6 @@ class Proveedor extends Model
         'celular_Proveedor',
         'celular_respaldo_Proveedor',
     ];
+    protected $guarded = [];
+    public $timestamps = false;
 }

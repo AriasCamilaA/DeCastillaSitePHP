@@ -30,6 +30,17 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
+        $proveedor = new Proveedor;
+        $proveedor->id_Proveedor=$request->input('id_Proveedor');
+        $proveedor->estado_Proveedor=$request->input('estado_Proveedor');
+        $proveedor->empresa_Proveedor=$request->input('empresa_Proveedor');
+        $proveedor->nombre_Proveedor=$request->input('nombre_Proveedor');
+        $proveedor->correo_Proveedor=$request->input('correo_Proveedor');
+        $proveedor->nit_Proveedor=$request->input('nit_Proveedor');
+        $proveedor->celular_Proveedor=$request->input('celular_Proveedor');
+        $proveedor->celular_respaldo_Proveedor=$request->input('celular_respaldo_Proveedor');
+        $proveedor->save();
+        return redirect()->back();
         //
     }
 
@@ -44,7 +55,7 @@ class ProveedorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Proveedor $proveedor)
+    public function edit($id)
     {
         //
     }
@@ -52,16 +63,30 @@ class ProveedorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Proveedor $proveedor)
+    public function update(Request $request, $id)
     {
+        $proveedor = Proveedor::find($id);
+        $proveedor->id_Proveedor=$request->input('id_Proveedor');
+        $proveedor->estado_Proveedor=$request->input('estado_Proveedor');
+        $proveedor->empresa_Proveedor=$request->input('empresa_Proveedor');
+        $proveedor->nombre_Proveedor=$request->input('nombre_Proveedor');
+        $proveedor->correo_Proveedor=$request->input('correo_Proveedor');
+        $proveedor->nit_Proveedor=$request->input('nit_Proveedor');
+        $proveedor->celular_Proveedor=$request->input('celular_Proveedor');
+        $proveedor->celular_respaldo_Proveedor=$request->input('celular_respaldo_Proveedor');
+        $proveedor->save();
+        return redirect()->back();
         //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Proveedor $proveedor)
+    public function destroy($id)
     {
+        $proveedor = Proveedor::find($id);
+        $proveedor->delete();
+        return redirect()->back();
         //
     }
 }

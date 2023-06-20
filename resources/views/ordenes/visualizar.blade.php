@@ -15,7 +15,7 @@
                     <img src="{{asset('assets/icons/lupa.png')}}" alt="">
                     <input type="text">
                     <img src="{{asset('assets/icons/agregar.png')}}" alt="" data-toggle="modal"
-                        data-target=".bd-example-modal-xl">
+                        data-target="#create">
                 </div>
 
                 <img src="{{asset('assets/icons/excel.png')}}" alt="">
@@ -38,15 +38,18 @@
                             <td>{{number_format(($proveedor->promedio_calificacion),1)}}</td>
 
                             <td class="tabla__opcion">
-                                <a href="./verProducto">
-                                    <img src="{{asset('assets/icons/visualizar.png')}}" alt="Visualizar">
-                                </a>
+                                <img src="{{asset('assets/icons/visualizar.png')}}" alt="Editar" data-toggle="modal"
+                                    data-target="#edit{{$proveedor->id_proveedor}}">
+                                <img src="{{asset('assets/icons/visualizar.png')}}" alt="Editar" data-toggle="modal"
+                                    data-target="#delete{{$proveedor->id_proveedor}}">
                             </td>
                         </tr>
+                        @include("ordenes.info")
                         @endforeach
                     </tbody>
                 </table>
             </div>
+            @include('ordenes/create')
         </div>
         <div>
             <img class='calendario' src="{{asset('assets/img/calendario.png')}}" alt="">
@@ -54,40 +57,3 @@
     </div>
 </div>
 </div>
-<!-- -------------------Modal de agregar------------------ -->
-<div class="modal fade bd-example-modal-xl" id="exampleModal" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="exampleModalLabel">Agregar Producto</h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="modalProductos__contenidos">
-                    <h2>Categoría</h2>
-                    <div class="modalProductos__campos">
-                        <div class="label">
-                            <img src="{{asset('assets/icons/lupa.png')}}" alt="">
-                        </div>
-                        <input type="text" required>
-                    </div>
-                    <div class="modalProductos__campos">
-                        <label class="label" for="">Nombre</label>
-                        <input type="text" placeholder="Nombre del producto" required>
-                    </div>
-                    <div class="modalProductos__campos">
-                        <label class="label" for="">Precio</label>
-                        <input type="number" placeholder="Precio del producto" required>
-                    </div>
-                    <input class="btn" type="button" value="Agregar producto">
-                </div>
-                <img class="product" src="{{asset('assets/img/galeria 2.png')}}" alt="Postre">
-            </div>
-        </div>
-    </div>
-</div>
-
-@endsection
