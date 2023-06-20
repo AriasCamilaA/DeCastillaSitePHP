@@ -32,6 +32,8 @@
                     </thead>
                     <tbody>
                         @foreach($proveedores as $proveedor)
+                        <?php $miproveedor = \App\Models\Proveedor::find($proveedor->id_proveedor); ?>
+
                         <tr>
                             <th>{{$proveedor->id_proveedor}}</th>
                             <td>{{$proveedor->empresa_proveedor}}</td>
@@ -44,7 +46,7 @@
                                     data-target="#delete{{$proveedor->id_proveedor}}">
                             </td>
                         </tr>
-                        @include("ordenes.info")
+                        @include("ordenes/info")
                         @endforeach
                     </tbody>
                 </table>

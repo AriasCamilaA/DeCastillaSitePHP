@@ -3,12 +3,13 @@
     align-items: center;
     background: var(--fondo1);
     justify-content: center;
+    flex-direction: column;
 }
 .modalProductos__contenidos {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 500px;
+    /* height: 500px; */
     justify-content: space-evenly;
     padding: 0 108px;
 }

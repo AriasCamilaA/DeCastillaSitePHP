@@ -14,7 +14,8 @@ class ProveedorController extends Controller
     public function index()
     {
         $proveedores = vw_provedorescalificacionavg::all();
-        return view('ordenes/visualizar',compact('proveedores'));
+        $tablaproveedores = Proveedor::all();
+        return view('ordenes/visualizar',compact('proveedores','tablaproveedores'));
     }
 
     /**
@@ -57,6 +58,7 @@ class ProveedorController extends Controller
      */
     public function edit($id)
     {
+        dump($request->input('id_Proveedor'));
         //
     }
 
@@ -66,7 +68,7 @@ class ProveedorController extends Controller
     public function update(Request $request, $id)
     {
         $proveedor = Proveedor::find($id);
-        $proveedor->id_Proveedor=$request->input('id_Proveedor');
+        $proveedor->id_Proveedor=$request->input('id_Proveedor');   
         $proveedor->estado_Proveedor=$request->input('estado_Proveedor');
         $proveedor->empresa_Proveedor=$request->input('empresa_Proveedor');
         $proveedor->nombre_Proveedor=$request->input('nombre_Proveedor');
@@ -74,7 +76,7 @@ class ProveedorController extends Controller
         $proveedor->nit_Proveedor=$request->input('nit_Proveedor');
         $proveedor->celular_Proveedor=$request->input('celular_Proveedor');
         $proveedor->celular_respaldo_Proveedor=$request->input('celular_respaldo_Proveedor');
-        $proveedor->save();
+        $proveedor->update();
         return redirect()->back();
         //
     }
@@ -84,6 +86,7 @@ class ProveedorController extends Controller
      */
     public function destroy($id)
     {
+        dump();
         $proveedor = Proveedor::find($id);
         $proveedor->delete();
         return redirect()->back();
