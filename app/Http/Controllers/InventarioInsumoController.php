@@ -6,6 +6,7 @@ use App\Models\InventarioInsumo;
 use App\Models\vw_inventario_insumo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Insumo;
 
 class InventarioInsumoController extends Controller
 {
@@ -32,6 +33,12 @@ class InventarioInsumoController extends Controller
      */
     public function store(Request $request)
     {
+        $insumo = new Insumo;
+        $insumo->id_Insumo=$request->input('id_Insumo');
+        $insumo->nombre_Insumo=$request->input('nombre_Insumo');
+        $insumo->id_Estado_FK=$request->input('id_Estado_FK');
+        $insumo->save();
+        return redirect()->back();
         //
     }
 
