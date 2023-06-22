@@ -40,9 +40,9 @@
                             <td>{{number_format(($proveedor->promedio_calificacion),1)}}</td>
 
                             <td class="tabla__opcion">
-                                <img src="{{asset('assets/icons/visualizar.png')}}" alt="Editar" data-toggle="modal"
+                                <img src="{{asset('assets/icons/editar.png')}}" alt="Editar" data-toggle="modal"
                                     data-target="#edit{{$proveedor->id_proveedor}}">
-                                <img src="{{asset('assets/icons/visualizar.png')}}" alt="Editar" data-toggle="modal"
+                                <img src="{{asset('assets/icons/borrar.png')}}" alt="Editar" data-toggle="modal"
                                     data-target="#delete{{$proveedor->id_proveedor}}">
                             </td>
                         </tr>
