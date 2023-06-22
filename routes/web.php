@@ -23,6 +23,8 @@ Route::get('landing', function () {
 
 Auth::routes();
 
+Route::get('ordenes/pdf',[App\Http\Controllers\ProveedorController::class, 'pdf'])->name('ordenes.pdf');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('menuPrincipal');
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\vw_provedorescalificacionavg;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
+use pdf;
 
 class ProveedorController extends Controller
 {
@@ -16,6 +17,17 @@ class ProveedorController extends Controller
         $proveedores = vw_provedorescalificacionavg::all();
         $tablaproveedores = Proveedor::all();
         return view('ordenes/visualizar',compact('proveedores','tablaproveedores'));
+    }
+
+    public function pdf()
+    {
+        $proveedores = vw_provedorescalificacionavg::all();
+        $tablaproveedores = Proveedor::all();
+
+        $pdf = pdf::loadView('ordenes.pdf',['proveedores'=> $proveedores]);
+        $pdf->loadHTML('<h1>Test</h1>');
+        return $pdf->stream();
+        //return view('ordenes.pdf', compact('proveedores'));
     }
 
     /**
