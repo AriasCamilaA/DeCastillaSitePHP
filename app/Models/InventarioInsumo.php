@@ -16,7 +16,5 @@ class InventarioInsumo extends Model
         'stock_InventarioProducto',
         'id_Producto_FK',
     ];
-    
-
 
 }

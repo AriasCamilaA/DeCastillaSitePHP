@@ -16,4 +16,6 @@ class insumo extends Model
         'nombre_Insumo',
         'id_Estado_FK',
     ];
+    protected $guarded = [];
+    public $timestamps = false;
 }

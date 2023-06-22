@@ -12,7 +12,7 @@
                 <h2>Ventas</h2>
             </div>
             <div class="btn_opciones">
-                <a href="inventario/visualizar">
+                <a href="inventario/visualizarinventario">
                     <img src="{{asset('assets/icons/Inventario.png')}}" alt="">
                 </a>
                 <h2>Inventario</h2>

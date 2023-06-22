@@ -26,7 +26,6 @@
                   <button class="tablink bg-oscuro" onclick="openCity(event,'Insumos')">Insumos</button>
                   <button class="tablink" onclick="openCity(event,'Productos')">Productos</button>
                 </div>
-                
                 <div id="Insumos" class="tab_content">
                     <div class="tabla">
                         <table class="table table-hover table-striped">

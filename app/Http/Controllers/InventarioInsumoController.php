@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\InventarioInsumo;
+use App\Models\Insumo;
 use App\Models\vw_inventario_insumo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Insumo;
 
 class InventarioInsumoController extends Controller
 {
@@ -16,7 +15,7 @@ class InventarioInsumoController extends Controller
     public function index()
     {
         $vw_inventario_insumo = vw_inventario_insumo::all();
-        return view('inventario/visualizar', compact('vw_inventario_insumo'));
+        return view('inventario/visualizarinventario', compact('vw_inventario_insumo'));
         //
     }
 

@@ -10,19 +10,19 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="modalProductos__contenidos" action="{{route('visualizar.store')}}" method="POST" enctype="multipart/from-data">
+                <form class="modalProductos__contenidos" action="{{route('visualizarinventario.store')}}" method="POST" enctype="multipart/from-data">
                     @csrf
                     <div class="modalProductos__campos">
                         <label class="label" for="">Identificación</label>
-                        <input name="id_Insumo" type="text" placeholder="Id del insumo" required>
+                        <input name="id_Insumo" type="text" placeholder="Identificación" required>
                     </div>
                     <div class="modalProductos__campos">
-                        <label class="label" for="">Nombre Insumo</label>
-                        <input name="nombre_Insumo" type="text" placeholder="Nombre del Insumo" required>
+                        <label class="label" for="">Insumo</label>
+                        <input name="nombre_Insumo" type="text" placeholder="Nombre insumo" required>
                     </div>
                     <div class="modalProductos__campos">
-                        <label class="label" for="">Estado Insumo</label>
-                        <input name="id_Estado_FK" type="text" placeholder="Nombre del producto" required>
+                        <label class="label" for="">Estado</label>
+                        <input name="id_Estado_FK" type="text" placeholder="Estado insumo" required>
                     </div>
                     <input class="btn" type="submit" value="Agregar Insumo">
                 </form>
