@@ -7,6 +7,7 @@ use App\Models\vw_pedidos_finalizados;
 use App\Models\vw_pedidos_no_finalizados;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PedidoController extends Controller
 {
@@ -16,9 +17,10 @@ class PedidoController extends Controller
     public function index()
     {
         //
+        $productos = DB::select('SELECT * FROM producto');
         $pedidos_finalizados = vw_pedidos_finalizados::all();
         $pedidos_no_finalizados = vw_pedidos_no_finalizados::all();
-        return view('pedidos/visualizar', compact('pedidos_finalizados','pedidos_no_finalizados'));
+        return view('pedidos/visualizar', compact('pedidos_finalizados','pedidos_no_finalizados','productos'));
     }
 
     /**

@@ -30,7 +30,7 @@
             <div>
               <img src="{{asset("assets/icons/lupa.png")}}" alt="">
               <input type="text">
-              <img src="{{asset("assets/icons/agregar.png")}}" alt="" data-toggle="modal" data-target="#exampleModal">
+              <img src="{{asset("assets/icons/agregar.png")}}" alt="" data-toggle="modal" data-target="#create">
             </div>
             <div class="filtros__fecha">
               <input type="date" name="" id="">
@@ -128,33 +128,6 @@
             </div>
           </div>
     </div>
-
-    <!-- -------------------Modal de agregar------------------ -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Nuevo Pedido</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <div class="btn_opciones">
-                    <a href="../pedidos/nuevoPedido">
-                        <img src="{{asset("assets/icons/mismoDia.png")}}" alt="">
-                    </a>
-                    <h2>Hoy</h2>
-                </div>
-                <div class="btn_opciones">
-                    <a href="../pedidos/nuevoPedidoEspecial">
-                        <img src="{{asset("assets/icons/eventoEspecial.png")}}" alt="">
-                    </a>
-                    <h2>Evento</h2>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <script src="{{asset('assets/js/tab_tabla.js')}}"></script>
-      @endsection
+    <script src="{{asset('assets/js/tab_tabla.js')}}"></script>
+    @include('pedidos.create')
+    @endsection
