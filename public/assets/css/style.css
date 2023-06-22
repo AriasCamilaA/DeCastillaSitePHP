@@ -72,8 +72,8 @@ footer {
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 44px;
-    height: calc(100vh - 44px);
+    top: 42px;
+    height: calc(100vh - 66px);
 }
 
 /*-------------------------Menu Principal-----------------------------------*/
