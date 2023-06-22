@@ -58,7 +58,6 @@ class ProveedorController extends Controller
      */
     public function edit($id)
     {
-        dump($request->input('id_Proveedor'));
         //
     }
 
@@ -86,7 +85,6 @@ class ProveedorController extends Controller
      */
     public function destroy($id)
     {
-        dump();
         $proveedor = Proveedor::find($id);
         $proveedor->delete();
         return redirect()->back();
