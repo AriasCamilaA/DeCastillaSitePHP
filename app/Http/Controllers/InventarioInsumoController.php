@@ -52,7 +52,7 @@ class InventarioInsumoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(InventarioInsumo $inventarioInsumo)
+    public function edit($id)
     {
         //
     }
@@ -60,16 +60,25 @@ class InventarioInsumoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, InventarioInsumo $inventarioInsumo)
+    public function update(Request $request, $id)
     {
         //
+        $insumo = Insumo::find($id);
+        $insumo->id_Insumo=$request->input('id_Insumo');
+        $insumo->nombre_Insumo=$request->input('nombre_Insumo');
+        $insumo->id_Estado_FK=$request->input('id_Estado_FK');
+        $insumo->update();
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(InventarioInsumo $inventarioInsumo)
+    public function destroy($id)
     {
         //
+        $insumo = Insumo::find($id);
+        $insumo->delete();
+        return redirect()->back();
     }
 }
