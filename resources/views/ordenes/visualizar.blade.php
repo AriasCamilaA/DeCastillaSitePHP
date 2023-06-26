@@ -18,9 +18,8 @@
                         data-target="#create">
                 </div>
 
-                <img src="{{asset('assets/icons/excel.png')}}" alt="">
                 <a href="{{route('ordenes.pdf')}}">
-                    {{__('PDF')}}
+                    <img src="{{asset('assets/icons/pdf2.png')}}" alt="">
                 </a>
             </div>
             <div class="tabla">
