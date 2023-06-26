@@ -22,10 +22,11 @@
                         <label class="label" for="">Insumo</label>
                         <input name="nombre_Insumo" type="text" placeholder="Nombre insumo" required value="{{$miinsumo->nombre_Insumo}}">
                     </div>
-                    <div class="modalProductos__campos">
-                        <label class="label" for="">Estado</label>
-                        <input name="id_Estado_FK" type="text" placeholder="Estado insumo" required value="{{$miinsumo->id_Estado_FK}}">
-                    </div>
+                    <select name="id_Estado_FK" class="form-select" aria-label="Default select example">
+                        @foreach($estados as $estado)
+                            <option value="{{$estado->id_Estado}}" >{{$estado->nombre_Estado}}</option>
+                        @endforeach
+                    </select>
                     <button class="btn" type="submit">Editar Insumo</button>
                 </form>
             </div>

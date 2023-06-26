@@ -6,6 +6,7 @@ use App\Models\Insumo;
 use App\Models\vw_inventario_insumo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InventarioInsumoController extends Controller
 {
@@ -15,7 +16,8 @@ class InventarioInsumoController extends Controller
     public function index()
     {
         $vw_inventario_insumo = vw_inventario_insumo::all();
-        return view('inventario/visualizarinventario', compact('vw_inventario_insumo'));
+        $estados = DB::select('SELECT * FROM estado');
+        return view('inventario/visualizarinventario', compact('vw_inventario_insumo', 'estados'));
         //
     }
 
@@ -63,7 +65,6 @@ class InventarioInsumoController extends Controller
     {
         //
         $insumo = Insumo::find($id);
-        $insumo->id_Insumo=$request->input('id_Insumo');
         $insumo->nombre_Insumo=$request->input('nombre_Insumo');
         $insumo->id_Estado_FK=$request->input('id_Estado_FK');
         $insumo->update();
@@ -78,7 +79,7 @@ class InventarioInsumoController extends Controller
         //
         $insumo = Insumo::find($id);
         $insumo->estado=0;
-        $insumo->delete();
+        $insumo->update();
         return redirect()->back();
     }
 }
