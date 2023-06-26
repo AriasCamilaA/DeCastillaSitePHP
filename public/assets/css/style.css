@@ -27,7 +27,7 @@ body {
     padding: 0;
 }
 
-h1,h2,h3,h4,h5 {
+h1,h2,h3 {
     font-family: 'Sofia', cursive;
     color: var(--oscuro);
     margin-bottom: revert;
