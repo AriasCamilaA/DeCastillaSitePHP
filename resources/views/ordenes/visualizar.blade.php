@@ -19,6 +19,9 @@
                 </div>
 
                 <img src="{{asset('assets/icons/excel.png')}}" alt="">
+                <a href="{{route('ordenes.pdf')}}">
+                    {{__('PDF')}}
+                </a>
             </div>
             <div class="tabla">
                 <table class="table table-hover table-striped">
