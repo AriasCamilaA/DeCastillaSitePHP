@@ -27,7 +27,8 @@ class User extends Authenticatable
         'celular_Usuario',
         'nombre_Usuario',
         'apellido_Usuario',
-        'id_Rol_FK'
+        'id_Rol_FK',
+        'estado',
     ];
 
     /**

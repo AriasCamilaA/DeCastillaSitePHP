@@ -222,6 +222,30 @@ CREATE TABLE IF NOT EXISTS Sabor_has_Producto (
   FOREIGN KEY (id_Producto_FK) REFERENCES Producto (id_Producto)
   );
   
+  
+ALTER TABLE Permiso ADD estado INT DEFAULT 1;
+ALTER TABLE Sabor ADD estado INT DEFAULT 1;
+ALTER TABLE Categoria ADD estado INT DEFAULT 1;
+ALTER TABLE Proveedor ADD estado INT DEFAULT 1;
+ALTER TABLE Rol ADD estado INT DEFAULT 1;
+ALTER TABLE tipoMovimiento ADD estado INT DEFAULT 1;
+ALTER TABLE Estado ADD estado INT DEFAULT 1;
+ALTER TABLE Insumo ADD estado INT DEFAULT 1;
+ALTER TABLE Producto ADD estado INT DEFAULT 1;
+ALTER TABLE Inventario ADD estado INT DEFAULT 1;
+ALTER TABLE Rol_has_Permiso ADD estado INT DEFAULT 1;
+ALTER TABLE Usuario ADD estado INT DEFAULT 1;
+ALTER TABLE EstadoPedido ADD estado INT DEFAULT 1;
+ALTER TABLE Pedido ADD estado INT DEFAULT 1;
+ALTER TABLE Calificacion ADD estado INT DEFAULT 1;
+ALTER TABLE EstadoOrdenCompra ADD estado INT DEFAULT 1;
+ALTER TABLE OrdenCompra ADD estado INT DEFAULT 1;
+ALTER TABLE DetalleOC ADD estado INT DEFAULT 1;
+ALTER TABLE Historico ADD estado INT DEFAULT 1;
+ALTER TABLE Venta ADD estado INT DEFAULT 1;
+ALTER TABLE Insumo_has_Proveedor ADD estado INT DEFAULT 1;
+ALTER TABLE DetalleVenta ADD estado INT DEFAULT 1;
+ALTER TABLE Sabor_has_Producto ADD estado INT DEFAULT 1;
 /*_______________________________________________________________________________________________________________________________________________________
 																TRIGGERS
 _________________________________________________________________________________________________________________________________________________________*/
@@ -291,6 +315,18 @@ BEGIN
     VALUES 
     (now(), NEW.cantidad_producto, NEW.id_producto_FK, 2, "PRODUCTO");
     
+END$$
+DELIMITER ;  
+
+/*---Agregar Calificación por defecto al proveedor cuando se cree uno nuevo --*/
+DELIMITER $$
+CREATE TRIGGER TG_calificacionProveedor_AI AFTER INSERT ON Proveedor
+FOR EACH ROW
+BEGIN
+	INSERT INTO Calificacion
+    (estrellas_Calificacion, id_Proveedor_FK) 
+    VALUES 
+    (5, new.id_Proveedor);
 END$$
 DELIMITER ;  
 
@@ -368,6 +404,7 @@ CREATE VIEW VW_INVENTARIO_INSUMO AS
 	FROM Inventario
 	INNER JOIN Insumo ON Inventario.id_Insumo_FK = Insumo.id_Insumo
 	INNER JOIN Historico ON Inventario.id_Insumo_FK = Historico.id_Insumo_FK
+    WHERE Insumo.estado = 1
 	GROUP BY Inventario.id_Insumo_FK, Insumo.nombre_Insumo, Inventario.stock_Inventario;
   /*-Los GROUP BY son necesarios para que la consulta funcione porque utilizamos sum() junto con columnas 
   con registros independientes-*/
@@ -382,8 +419,9 @@ CREATE VIEW VW_INVENTARIO_PRODUCTO AS
         SUM(IF(Historico.id_tipoMovimiento_FK = 2, Historico.cantidad_H, 0)) AS SALIDAS, 
         Inventario.stock_Inventario AS STOCK
 	FROM Inventario
-	INNER JOIN PRoducto ON Inventario.id_Producto_FK = Producto.id_Producto
+	INNER JOIN Producto ON Inventario.id_Producto_FK = Producto.id_Producto
 	INNER JOIN Historico ON Inventario.id_Producto_FK = Historico.id_Producto_FK
+    WHERE Producto.estado = 1
 	GROUP BY Inventario.id_Producto_FK, Producto.nombre_Producto, Inventario.stock_Inventario;
   /*-Los GROUP BY son necesarios para que la consulta funcione porque utilizamos sum() junto con columnas 
   con registros independientes-*/
@@ -401,6 +439,7 @@ CREATE VIEW VW_PEDIDOS_NO_FINALIZADOS AS
 		INNER JOIN usuario ON Pedido.noDocumento_Usuario_FK = usuario.noDocumento_Usuario
 		WHERE nombre_EstadoPedido != "Finalizados"
 		AND nombre_EstadoPedido !="Cancelado"
+        AND pedido.estado = 1
 		ORDER BY fecha_Pedido ASC;
 
 -- SELECT * FROM VW_PEDIDOS_NO_FINALIZADOS;
@@ -415,6 +454,7 @@ CREATE VIEW VW_PEDIDOS_FINALIZADOS AS
 		INNER JOIN usuario ON Pedido.noDocumento_Usuario_FK = usuario.noDocumento_Usuario
 		WHERE nombre_EstadoPedido = "Finalizados"
 		OR nombre_EstadoPedido ="Cancelado"
+        AND pedido.estado = 1
 		ORDER BY fecha_Pedido ASC;
 
 -- SELECT * FROM VW_PEDIDOS_FINALIZADOS;
@@ -424,6 +464,7 @@ CREATE VIEW VW_provedoresCalificacionAVG AS
   SELECT proveedor.id_proveedor, proveedor.empresa_proveedor, AVG(calificacion.estrellas_calificacion) as promedio_calificacion
     FROM proveedor
     INNER JOIN calificacion on proveedor.id_proveedor = calificacion.id_proveedor_FK
+    WHERE proveedor.estado = 1
     GROUP BY proveedor.id_proveedor;
 
 -- SELECT * FROM VW_provedoresCalificacionAVG;
@@ -434,7 +475,6 @@ CREATE VIEW VW_DATOSVENTA AS
   total_Venta AS TOTAL, CONCAT(usuario.nombre_Usuario, ' ', usuario.apellido_Usuario) as VENDEDOR
     FROM venta
     INNER JOIN usuario on venta.noDocumento_Usuario_FK = usuario.noDocumento_Usuario;
-    
 -- SELECT * FROM VW_DATOSVENTA;
 
 

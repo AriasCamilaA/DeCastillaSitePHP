@@ -86,7 +86,8 @@ class ProveedorController extends Controller
     public function destroy($id)
     {
         $proveedor = Proveedor::find($id);
-        $proveedor->delete();
+        $proveedor->estado=0;
+        $proveedor->update();
         return redirect()->back();
         //
     }

@@ -77,6 +77,7 @@ class RegisterController extends Controller
             'nombre_Usuario' => $data['nombre_Usuario1'] . ' ' . $data['nombre_Usuario2'],
             'apellido_Usuario' => $data['apellido_Usuario1'] . ' ' . $data['apellido_Usuario2'],
             'id_Rol_FK' => 2,
+            'estado'=>1,
         ]);
     }
 }
