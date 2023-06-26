@@ -33,9 +33,8 @@ class InventarioInsumoController extends Controller
     public function store(Request $request)
     {
         $insumo = new Insumo;
-        $insumo->id_Insumo=$request->input('id_Insumo');
         $insumo->nombre_Insumo=$request->input('nombre_Insumo');
-        $insumo->id_Estado_FK=$request->input('id_Estado_FK');
+        $insumo->id_Estado_FK=1;
         $insumo->save();
         return redirect()->back();
         //
@@ -78,6 +77,7 @@ class InventarioInsumoController extends Controller
     {
         //
         $insumo = Insumo::find($id);
+        $insumo->estado=0;
         $insumo->delete();
         return redirect()->back();
     }

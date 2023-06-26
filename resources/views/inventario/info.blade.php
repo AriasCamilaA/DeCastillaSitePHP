@@ -16,7 +16,7 @@
                     @method('PUT')
                     <div class="modalProductos__campos">
                         <label class="label" for="">Identificación</label>
-                        <input name="id_Insumo" type="text" placeholder="Identificación" required value="{{$miinsumo->id_Insumo}}">
+                        <input disabled name="id_Insumo" type="text" placeholder="Identificación" required value="{{$miinsumo->id_Insumo}}">
                     </div>
                     <div class="modalProductos__campos">
                         <label class="label" for="">Insumo</label>

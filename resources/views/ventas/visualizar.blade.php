@@ -1,24 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="{{asset("assets/css/tablas.css")}}">
+<link rel="stylesheet" href="{{asset('assets/css/tablas.css')}}">
 
     <!-- ---------------------------------------------Contenido----------------------------------------- -->
     <div class="contenido">
         <h1>Ventas</h1>
         <div class="filtros">
             <div>
-                <img src="{{asset("assets/icons/lupa.png")}}" alt="">
+                <img src="{{asset('assets/icons/lupa.png')}}" alt="">
                 <input type="text">
                 <a href="./nuevaVenta">
-                    <img src="{{asset("assets/icons/agregar.png")}}" alt="">
+                    <img src="{{asset('assets/icons/agregar.png')}}" alt="">
                 </a>
             </div>
             <div class="filtros__fecha">
                 <input type="date" name="" id="">
                 <input type="date" name="" id="">
             </div>
-            <img src="{{asset("assets/icons/excel.png")}}" alt="">
+            <img src="{{asset('assets/icons/excel.png')}}" alt="">
         </div>
         <div class="tabla">
             <table class="table table-hover table-striped">
