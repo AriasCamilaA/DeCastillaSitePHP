@@ -13,14 +13,6 @@
                 <form class="modalProductos__contenidos" action="{{route('visualizar.store')}}" method="POST" enctype="multipart/from-data">
                     @csrf
                     <div class="modalProductos__campos">
-                        <label class="label" for="">Identificación</label>
-                        <input name="id_Proveedor" type="text" placeholder="Nombre del producto" required>
-                    </div>
-                    <div class="modalProductos__campos">
-                        <label class="label" for="">Estado</label>
-                        <input name="estado_Proveedor" type="text" placeholder="Nombre del producto" required>
-                    </div>
-                    <div class="modalProductos__campos">
                         <label class="label" for="">Empresa</label>
                         <input name="empresa_Proveedor" type="text" placeholder="Nombre del producto" required>
                     </div>

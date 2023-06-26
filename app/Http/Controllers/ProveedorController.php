@@ -32,8 +32,7 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         $proveedor = new Proveedor;
-        $proveedor->id_Proveedor=$request->input('id_Proveedor');
-        $proveedor->estado_Proveedor=$request->input('estado_Proveedor');
+        $proveedor->estado_Proveedor=1;
         $proveedor->empresa_Proveedor=$request->input('empresa_Proveedor');
         $proveedor->nombre_Proveedor=$request->input('nombre_Proveedor');
         $proveedor->correo_Proveedor=$request->input('correo_Proveedor');
@@ -67,7 +66,6 @@ class ProveedorController extends Controller
     public function update(Request $request, $id)
     {
         $proveedor = Proveedor::find($id);
-        $proveedor->id_Proveedor=$request->input('id_Proveedor');   
         $proveedor->estado_Proveedor=$request->input('estado_Proveedor');
         $proveedor->empresa_Proveedor=$request->input('empresa_Proveedor');
         $proveedor->nombre_Proveedor=$request->input('nombre_Proveedor');
