@@ -28,6 +28,9 @@ ir a panel de control > Cuentas de Usuarios > Administrador de Credenciales > Cr
 ----generar clave
     php artisan key:generate
 
+----Ejecutar migración
+    php artisan migrate --path=database\migrations\2014_10_12_100000_create_password_reset_tokens_table.php
+
 ----Encender el servidor
     php artisan serve
 
