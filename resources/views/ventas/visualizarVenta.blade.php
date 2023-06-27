@@ -10,9 +10,7 @@
             <div>
                 <img src="{{asset('assets/icons/lupa.png')}}" alt="">
                 <input type="text">
-                <a href="./nuevaVenta">
-                    <img src="{{asset('assets/icons/agregar.png')}}" alt="">
-                </a>
+                <img src="{{asset('assets/icons/agregar.png')}}" alt="" data-toggle="modal" data-target="#create">
             </div>
             <div class="filtros__fecha">
                 <input type="date" name="" id="">
@@ -48,6 +46,8 @@
                     @endforeach
                 </tbody>
                 </table>
+                
         </div>
+        @include("ventas/create")
     </div>
 @endsection

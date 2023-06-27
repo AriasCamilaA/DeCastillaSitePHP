@@ -6,13 +6,13 @@
         <h1>Menú Administrador</h1>
         <div class="opciones menuAdmin">
             <div class="btn_opciones">
-                <a href="ventas/visualizar">
+                <a href="ventas/visualizarVenta">
                     <img src="{{asset('assets/icons/ventas.png')}}" alt="">
                 </a>
                 <h2>Ventas</h2>
             </div>
             <div class="btn_opciones">
-                <a href="inventario/visualizarinventario">
+                <a href="inventario/visualizarInventario">
                     <img src="{{asset('assets/icons/Inventario.png')}}" alt="">
                 </a>
                 <h2>Inventario</h2>
@@ -24,7 +24,7 @@
                 <h2>Proveedores</h2>
             </div>
             <div class="btn_opciones">
-                <a href="pedidos/visualizar">
+                <a href="pedidos/visualizarPedido">
                     <img src="{{asset('assets/icons/Pedidos.png')}}" alt="">
                 </a>
                 <h2>Pedidos</h2>

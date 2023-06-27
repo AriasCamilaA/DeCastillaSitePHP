@@ -17,7 +17,7 @@ class InventarioInsumoController extends Controller
     {
         $vw_inventario_insumo = vw_inventario_insumo::all();
         $estados = DB::select('SELECT * FROM estado');
-        return view('inventario/visualizarinventario', compact('vw_inventario_insumo', 'estados'));
+        return view('inventario/visualizarInventario', compact('vw_inventario_insumo', 'estados'));
         //
     }
 

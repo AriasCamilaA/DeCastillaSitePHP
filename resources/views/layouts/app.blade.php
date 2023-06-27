@@ -60,11 +60,11 @@
                     <div class="menuLateral">
                         <div class="menuLateral__Opcion">
                             <img src="{{asset('assets/icons/menuLateral/LogoVentas.png')}}" alt="icono">
-                            <a href="../ventas/visualizar">Ventas</a>
+                            <a href="../ventas/visualizarVenta">Ventas</a>
                         </div>
                         <div class="menuLateral__Opcion">
                             <img src="{{asset('assets/icons/menuLateral/LogoInventario.png')}}" alt="icono">
-                            <a href="../inventario/visualizar">Inventario</a>
+                            <a href="../inventario/visualizarInventario">Inventario</a>
                         </div>
                         <div class="menuLateral__Opcion">
                             <img src="{{asset('assets/icons/menuLateral/LogoProveedores.png')}}" alt="icono">

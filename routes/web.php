@@ -30,9 +30,9 @@ Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('men
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('pedidos/visualizar', PedidoController::class);
-    Route::resource('ventas/visualizar', VentaController::class);
-    Route::resource('inventario/visualizarinventario', InventarioInsumoController::class);
+    Route::resource('pedidos/visualizarPedido', PedidoController::class);
+    Route::resource('ventas/visualizarVenta', VentaController::class);
+    Route::resource('inventario/visualizarInventario', InventarioInsumoController::class);
     Route::resource('ordenes/visualizar', ProveedorController::class);
 
 });

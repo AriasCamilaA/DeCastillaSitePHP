@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="modalProductos__contenidos" action="{{ route('visualizarinventario.update',$miinsumo->id_Insumo) }}" 
+                <form class="modalProductos__contenidos" action="{{ route('visualizarInventario.update',$miinsumo->id_Insumo) }}" 
                     method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -46,7 +46,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="modalProductos__contenidos" action="{{ route('visualizarinventario.destroy', $miinsumo->id_Insumo) }}" 
+                <form class="modalProductos__contenidos" action="{{ route('visualizarInventario.destroy', $miinsumo->id_Insumo) }}" 
                     method="post" enctype="multipart/form-data">
                     @csrf
                     @method('DELETE')

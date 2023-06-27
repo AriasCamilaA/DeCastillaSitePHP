@@ -14,7 +14,7 @@ class VentaController extends Controller
     public function index()
     {
         $ventas=vw_datosventa::all();
-        return view('ventas/visualizar',compact('ventas'));
+        return view('ventas/visualizarVenta',compact('ventas'));
         //
     }
 
@@ -31,6 +31,10 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
+        $venta = new Venta;
+        $venta->total_Venta=$request->input('total_Venta');
+        $venta->update();
+        return redirect()->back();
         //
     }
 
