@@ -14,9 +14,9 @@
     ];
 @endphp
 
-    <link rel="stylesheet" href="{{asset("assets/css/tablas.css")}}">
-    <link rel="stylesheet" href="{{asset("assets/css/botones.css")}}">
-    <link rel="stylesheet" href="{{asset("assets/css/tab_tabla.css")}}">
+    <link rel="stylesheet" href="{{asset('assets/css/tablas.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/botones.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/tab_tabla.css')}}">
         <!-- ---------------------------------------------Contenido----------------------------------------- -->
         <div class="contenido">
           <h1>Pedidos</h1>
@@ -28,15 +28,18 @@
           </div>
           <div class="filtros">
             <div>
-              <img src="{{asset("assets/icons/lupa.png")}}" alt="">
+              <img src="{{asset('assets/icons/lupa.png')}}" alt="">
               <input type="text">
-              <img src="{{asset("assets/icons/agregar.png")}}" alt="" data-toggle="modal" data-target="#create">
+              <img src="{{asset('assets/icons/agregar.png')}}" alt="" data-toggle="modal" data-target="#create">
             </div>
             <div class="filtros__fecha">
               <input type="date" name="" id="">
               <input type="date" name="" id="">
             </div>
-            <img src="{{asset("assets/icons/excel.png")}}" alt="">
+            <img src="{{asset('assets/icons/excel.png')}}" alt="">
+            <a href="{{route('pedidos.pdf')}}">
+                    {{__('PDF')}}
+            </a>
           </div>
   
           <div class="tablaConTab">
@@ -76,7 +79,7 @@
                         </td>
                         <td class="tabla__opcion">
                             <a href="./verPedido">
-                                <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
+                                <img src="{{asset('assets/icons/visualizar.png')}}" alt="Visualizar">
                             </a>
                         </td>
                     </tr>
@@ -84,7 +87,7 @@
                     </tbody>
                   </table>
             </div>
-            </div>
+          </div>
           
             <div id="Finalizados" class="tab_content" style="display:none">
               <div class="tabla">
@@ -117,7 +120,7 @@
                         </td>
                         <td class="tabla__opcion">
                             <a href="./verPedido">
-                                <img src="{{asset("assets/icons/visualizar.png")}}" alt="Visualizar">
+                                <img src="{{asset('assets/icons/visualizar.png')}}" alt="Visualizar">
                             </a>
                         </td>
                     </tr>

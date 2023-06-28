@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS Rol_has_Permiso (
   CREATE TABLE IF NOT EXISTS Pedido (
   id_Pedido INT NOT NULL AUTO_INCREMENT,
   descripcion_Pedido VARCHAR(200) NULL,
-  fecha_Pedido DATETIME NOT NULL,
+  fecha_Pedido DATETIME,
   id_EstadoPedido_FK INT NOT NULL,
   noDocumento_Usuario_FK BIGINT NOT NULL,
   PRIMARY KEY (id_Pedido),
@@ -222,6 +222,19 @@ CREATE TABLE IF NOT EXISTS Sabor_has_Producto (
   FOREIGN KEY (id_Producto_FK) REFERENCES Producto (id_Producto)
   );
   
+    CREATE TABLE IF NOT EXISTS DetallePedido (
+  id_DetallePedido INT NOT NULL AUTO_INCREMENT,
+  cantidad_producto INT NOT NULL,
+  subtotal_DetallePedido INT NOT NULL,
+  id_Producto_FK INT NOT NULL,
+  id_Venta_FK INT NOT NULL,
+  id_EstadoPedido_FK INT NOT NULL,
+  PRIMARY KEY (id_DetallePedido),
+  FOREIGN KEY (id_Producto_FK) REFERENCES Producto (id_Producto),
+  FOREIGN KEY (id_Venta_FK) REFERENCES Venta (id_Venta),
+  FOREIGN KEY (id_EstadoPedido_FK) REFERENCES EstadoPedido(id_EstadoPedido)
+  );
+  
   
 ALTER TABLE Permiso ADD estado INT DEFAULT 1;
 ALTER TABLE Sabor ADD estado INT DEFAULT 1;
@@ -245,6 +258,7 @@ ALTER TABLE Historico ADD estado INT DEFAULT 1;
 ALTER TABLE Venta ADD estado INT DEFAULT 1;
 ALTER TABLE Insumo_has_Proveedor ADD estado INT DEFAULT 1;
 ALTER TABLE DetalleVenta ADD estado INT DEFAULT 1;
+ALTER TABLE DetallePedido ADD estado INT DEFAULT 1;
 ALTER TABLE Sabor_has_Producto ADD estado INT DEFAULT 1;
 /*_______________________________________________________________________________________________________________________________________________________
 																TRIGGERS

@@ -16,7 +16,7 @@ class Pedido extends Model
         'descripcion_Pedido',
         'fecha_Pedido',
         'id_EstadoPedido_FK',
-        'id_Cliente_FK',
-        'id_Venta_FK',
+        'noDocumento_Usuario_FK',
+        'estado',
     ];
 }
