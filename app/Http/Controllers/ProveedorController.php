@@ -54,7 +54,6 @@ class ProveedorController extends Controller
         $messages = [
             'nit.required' => 'El NIT es obligatorio.',
             'nit.unique' => 'El NIT ya está en uso.',
-            'nit.regex' => 'El NIT debe tener el formato correcto (####-######-###-#).',
         ];
         
         $proveedor = new Proveedor;
