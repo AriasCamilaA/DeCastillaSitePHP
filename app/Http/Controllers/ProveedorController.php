@@ -42,6 +42,21 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = [
+            'empresa_Proveedor' => ['required','max:35','unique:usuario,empresa_Proveedor'], 
+            'nombre_Proveedor' => ['required','max:50'],
+            'correo_Proveedor' => ['required','unique:usuario,correo_Proveedor'],
+            'nit_Proveedor' => ['required','unique:usuario,nit_Proveedor'],
+            'celular_Proveedor' => ['required','max:13'],
+            'celular_respaldo_Proveedor' => ['required','max:13'],
+        ];
+
+        $messages = [
+            'nit.required' => 'El NIT es obligatorio.',
+            'nit.unique' => 'El NIT ya está en uso.',
+            'nit.regex' => 'El NIT debe tener el formato correcto (####-######-###-#).',
+        ];
+        
         $proveedor = new Proveedor;
         $proveedor->estado_Proveedor=1;
         $proveedor->empresa_Proveedor=$request->input('empresa_Proveedor');
@@ -76,6 +91,15 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $rules = [
+            'empresa_Proveedor' => ['required','max:35','unique:usuario,empresa_Proveedor'], 
+            'nombre_Proveedor' => ['required','max:50'],
+            'correo_Proveedor' => ['required','unique:usuario,correo_Proveedor'],
+            'nit_Proveedor' => ['required','unique:usuario,nit_Proveedor'],
+            'celular_Proveedor' => ['required','max:13'],
+            'celular_respaldo_Proveedor' => ['required','max:13'],
+        ];
+
         $proveedor = Proveedor::find($id);
         $proveedor->estado_Proveedor=$request->input('estado_Proveedor');
         $proveedor->empresa_Proveedor=$request->input('empresa_Proveedor');

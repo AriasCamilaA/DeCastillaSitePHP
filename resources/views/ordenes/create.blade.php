@@ -14,27 +14,27 @@
                     @csrf
                     <div class="modalProductos__campos">
                         <label class="label" for="">Empresa</label>
-                        <input name="empresa_Proveedor" type="text" placeholder="Nombre del producto" required>
+                        <input name="empresa_Proveedor" type="text" placeholder="Empresa" required>
                     </div>
                     <div class="modalProductos__campos">
                         <label class="label" for="">Nombre</label>
-                        <input name="nombre_Proveedor" type="text" placeholder="Nombre del producto" required>
+                        <input name="nombre_Proveedor" type="text" placeholder="Nombre" required>
                     </div>
                     <div class="modalProductos__campos">
                         <label class="label" for="">Correo</label>
-                        <input name="correo_Proveedor" type="text" placeholder="Nombre del producto" required>
+                        <input name="correo_Proveedor" type="email" placeholder="Corre proveedor" required>
                     </div>
                     <div class="modalProductos__campos">
                         <label class="label" for="">Nit</label>
-                        <input name="nit_Proveedor" type="text" placeholder="Nombre del producto" required>
+                        <input name="nit_Proveedor" type="number" placeholder="Nit" required>
                     </div>
                     <div class="modalProductos__campos">
                         <label class="label" for="">Celular</label>
-                        <input name="celular_Proveedor" type="text" placeholder="Nombre del producto" required>
+                        <input name="celular_Proveedor" type="number" placeholder="Celular" required>
                     </div>
                     <div class="modalProductos__campos">
                         <label class="label" for="">Celular respaldo</label>
-                        <input name="celular_respaldo_Proveedor" type="text" placeholder="Nombre del producto" required>
+                        <input name="celular_respaldo_Proveedor" type="number" placeholder="Celular respaldo" required>
                     </div>
                     <input class="btn" type="submit" value="Agregar proveedor">
                 </form>
