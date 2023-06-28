@@ -17,6 +17,9 @@
                 <input type="date" name="" id="">
             </div>
             <img src="{{asset('assets/icons/excel.png')}}" alt="">
+            <a href="{{route('ventas.pdf')}}">
+                    {{__('PDF')}}
+            </a>
         </div>
         <div class="tabla">
             <table class="table table-hover table-striped">

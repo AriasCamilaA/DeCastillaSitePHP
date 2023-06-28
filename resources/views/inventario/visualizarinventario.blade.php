@@ -19,6 +19,11 @@
             <input type="date" name="" id="">
         </div>
         <img src="{{asset('assets/icons/excel.png')}}" alt="">
+        
+        <a href="{{route('inventario.pdf')}}">
+                    {{__('PDF')}}
+        
+        </a>
     </div>
 
     <div class="tablaConTab">

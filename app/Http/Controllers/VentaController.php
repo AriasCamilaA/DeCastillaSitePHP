@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Venta;
 use App\Models\vw_datosventa;
 use Illuminate\Http\Request;
+use PDF;
 
 class VentaController extends Controller
 {
@@ -16,6 +17,14 @@ class VentaController extends Controller
         $ventas=vw_datosventa::all();
         return view('ventas/visualizarVenta',compact('ventas'));
         //
+    }
+
+    public function pdf()
+    {
+        $ventas=vw_datosventa::all();
+
+        $pdf = PDF::loadView('ventas.pdf',['ventas'=> $ventas]);
+        return $pdf->stream();
     }
 
     /**

@@ -23,6 +23,9 @@ Route::get('landing', function () {
 
 Auth::routes();
 
+Route::get('pedidos/pdf',[App\Http\Controllers\PedidoController::class, 'pdf'])->name('pedidos.pdf');
+Route::get('ventas/pdf',[App\Http\Controllers\VentaController::class, 'pdf'])->name('ventas.pdf');
+Route::get('inventario/pdf',[App\Http\Controllers\InventarioInsumoController::class, 'pdf'])->name('inventario.pdf');
 Route::get('ordenes/pdf',[App\Http\Controllers\ProveedorController::class, 'pdf'])->name('ordenes.pdf');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -7,6 +7,7 @@ use App\Models\vw_inventario_insumo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class InventarioInsumoController extends Controller
 {
@@ -19,6 +20,16 @@ class InventarioInsumoController extends Controller
         $estados = DB::select('SELECT * FROM estado');
         return view('inventario/visualizarInventario', compact('vw_inventario_insumo', 'estados'));
         //
+    }
+
+    public function pdf()
+    {
+        $vw_inventario_insumo = vw_inventario_insumo::all();
+        $estados = DB::select('SELECT * FROM estado');
+
+        $pdf = PDF::loadView('inventario.pdf',['vw_inventario_insumo'=> $vw_inventario_insumo]);
+        return $pdf->stream();
+        //return view('inventario.pdf',compact('vw_inventario_insumo', 'estados'));
     }
 
     /**
@@ -34,6 +45,9 @@ class InventarioInsumoController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = [
+            'nombre_Insumo' => 'required|max:25',
+        ];
         $insumo = new Insumo;
         $insumo->nombre_Insumo=$request->input('nombre_Insumo');
         $insumo->id_Estado_FK=1;
@@ -64,6 +78,9 @@ class InventarioInsumoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $rules = [
+            'nombre_Insumo' => 'required|max:25',
+        ];
         $insumo = Insumo::find($id);
         $insumo->nombre_Insumo=$request->input('nombre_Insumo');
         $insumo->id_Estado_FK=$request->input('id_Estado_FK');
