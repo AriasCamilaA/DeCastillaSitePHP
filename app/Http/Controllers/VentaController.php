@@ -6,6 +6,9 @@ use App\Models\Venta;
 use App\Models\vw_datosventa;
 use Illuminate\Http\Request;
 use PDF;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class VentaController extends Controller
 {
@@ -14,8 +17,9 @@ class VentaController extends Controller
      */
     public function index()
     {
+        $productos = DB::select('SELECT * FROM producto');
         $ventas=vw_datosventa::all();
-        return view('ventas/visualizarVenta',compact('ventas'));
+        return view('ventas/visualizarVenta',compact('ventas','productos'));
         //
     }
 
@@ -40,11 +44,29 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
-        $venta = new Venta;
-        $venta->total_Venta=$request->input('total_Venta');
-        $venta->update();
+
+        $descripcion = $request->input('descripcion');
+        $productos = $request->input('productos');
+
+        DB::insert('INSERT INTO Venta (fecha_Venta, hora_venta, total_Venta, noDocumento_Usuario_FK)
+        VALUES (CURDATE(), CURTIME(), 0 ,'. Auth::user()->noDocumento_Usuario .')'
+        );
+
+
+        $lastInsertedId = DB::selectOne('SELECT LAST_INSERT_ID() as id')->id;
+
+        foreach ($productos as $productoId => $producto) {
+
+            DB::insert(
+                'INSERT INTO DetalleVenta (cantidad_producto, subtotal_DetalleVenta, id_Producto_FK, id_Venta_FK) VALUES (
+                    ' . $producto['cantidad'] . ', '
+                    . ($producto['precio'] * $producto['cantidad']) . ', '
+                    . $productoId . ', '
+                    . $lastInsertedId . ')'
+                    
+            );            
+        };
         return redirect()->back();
-        //
     }
 
     /**

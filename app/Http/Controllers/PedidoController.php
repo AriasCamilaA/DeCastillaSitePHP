@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use PDF;
 
 
+
 class PedidoController extends Controller
 {
     /**
